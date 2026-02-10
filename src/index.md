@@ -305,6 +305,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 
 1. 建立與編輯：管理員可手動新增使用者，或進入編輯頁面修改帳號、名稱、電子信箱、身分權限及時區設定 。
+
 ![使用者設定](/sosi-manual/assets/images/user-set-17.png){: width="500px"}
 
 2. 帳號刪除：管理員可將不再需要的使用者帳號從系統中移除 。
@@ -352,7 +353,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 新增存取權限裝置（僅限設定管理員）
     * 管理員可藉由此處的下拉選單，選取或是搜尋要授權該憑證權限的裝置，並點選送出，即可授權成功。
 
-![查看憑證](/sosi-manual/assets/images/check-cert-20.png.png){: width="500px"}
+![查看憑證](/sosi-manual/assets/images/cert-20.png){: width="500px"}
 
 ### **四、裝置連線授權相關**
 
@@ -368,13 +369,14 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 建立群組：新增使用者授權群組。
 * 編輯群組：可編輯群組名稱
 * 刪除群組
+
 ![授權群組設定](/sosi-manual/assets/images/Authorize-group-21.png){: width="500px"}
 
 3. 查看群組
 * 群組資訊
 * 新增使用者：僅限身份為管理者
 
-![新增授權群組](/sosi-manual/assets/images/auth-addgroup-22.png){: width="500px"}
+![新增授權群組](/sosi-manual/assets/images/authaddgroup-22.png){: width="500px"}
 
 #### **（二）授權連線申請**
 
@@ -394,6 +396,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 1. 搜尋條件
 * 支援依據「使用者帳號」、「裝置名稱」、「授權開始/結束時間」以及「是否為永久授權」進行精確篩選 。
+
 ![授權搜尋](/sosi-manual/assets/images/auth-search-23.png){: width="500px"}
 
 2. 新增、編輯授權連線
