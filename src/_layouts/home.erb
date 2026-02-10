@@ -1,0 +1,57 @@
+<style>
+  .callout {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-left: 0.3rem solid;
+    border-radius: 0.2rem;
+    background-color: #f8f9fa;
+  }
+  .callout-info { border-left-color: #2196f3; background-color: #e3f2fd; }
+  .callout-warning { border-left-color: #ff9800; background-color: #fff3e0; }
+  .callout-danger { border-left-color: #f44336; background-color: #ffebee; }
+</style>
+<style>
+  /* 自動偵測包含警告符號的段落並上色 */
+  p:has(img), p:has(strong) { margin-bottom: 1.5rem; }
+  
+  /* 讓所有的 H2 標題自帶底部裝飾線，增加層次感 */
+  h2 { 
+    border-bottom: 2px solid #007bff; 
+    padding-bottom: 10px; 
+    margin-top: 40px; 
+    color: #0056b3;
+  }
+  
+  /* 讓所有的 H3 標題前面帶一個小方塊 */
+  h3 {
+    border-left: 5px solid #6c757d;
+    padding-left: 10px;
+    margin-top: 30px;
+  }
+
+  /* 讓表格變漂亮（不再是擠在一起的文字） */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  th { background: #f8f9fa; text-align: left; padding: 12px; border: 1px solid #dee2e6; }
+  td { padding: 12px; border: 1px solid #dee2e6; }
+</style>
+<div id="progress-bar" style="position:fixed; top:0; left:0; height:4px; background:#007bff; width:0; z-index:9999;"></div>
+<script>
+  window.onscroll = function() {
+    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    var scrolled = (winScroll / height) * 100;
+    document.getElementById("progress-bar").style.width = scrolled + "%";
+  };
+</script>
+<script>
+  document.querySelectorAll('.main-content img').forEach(img => {
+    img.style.cursor = 'zoom-in';
+    img.onclick = function() {
+      window.open(this.src, '_blank');
+    };
+  });
+</script>
