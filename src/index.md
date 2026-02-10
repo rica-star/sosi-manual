@@ -3,23 +3,6 @@ layout: home
 title: SOSI 產品文件中心
 ---
 
-<style>
-  img { 
-    max-width: 550px !important; 
-    height: auto; 
-    display: block; 
-    margin: 20px 0; 
-    border: 1px solid #eee; 
-    border-radius: 8px; 
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
-  }
-</style>
-
-<style>img { max-width: 550px !important; height: auto; display: block; margin: 20px 0; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }</style>
-
-<style>img { max-width: 550px !important; height: auto; display: block; margin: 20px 0; border: 1px solid #eee; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }</style>
-
-
 📚這裡是 SOSI 的產品操作手冊。
 
 ---
@@ -646,3 +629,5 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
     * 項目編號：受影響物件在資料庫中的唯一 ID。
 
 ![操作紀錄列表](/sosi-manual/assets/images/operate-list-33.png)
+
+
