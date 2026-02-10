@@ -19,7 +19,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 最強身分盾牌：強制整合 LDAP 認證與全站兩階段驗證（2FA），確保帳號不被盜用。
 * 精確存取導航：透過管理員審核的授權機制，讓使用者只能連線至其職務所需的特定裝置 。
 * 無死角行為鏡頭：所有的操作過程都會被錄影、鍵盤紀錄，並加上動態浮水印，讓非法操作無所遁形 。
-![產品簡介](/assets/images/review-1.png)
+![產品簡介](/sosi-manual/assets/images/review-1.png)
 
 ## **貳、快速入門**
 
@@ -82,7 +82,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * Admin 管理者：選擇 SOSI 
 * 一般使用者：選擇 LDAP 
 
-![登入畫面](/assets/images/login-2.png)
+![登入畫面](/sosi-manual/assets/images/login-2.png)
 
 ### **二、兩階段驗證 (2FA) 設定**
 
@@ -93,7 +93,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 1. 登入後會顯示以下畫面
 2. 綁定驗證器：使用手機下載 Authenticator App（如 Google Authenticator），掃描網頁顯示之 QR Code。
 
-![兩階段驗證](/assets/images/2FA-3.png)
+![兩階段驗證](/sosi-manual/assets/images/2FA-3.png)
 
 3. 輸入驗證碼：輸入 App 產生的 6 位數動態驗證碼完成綁定。(每30秒自動更換)
 4. 備份恢復碼：系統會提供多組 恢復碼。
@@ -104,7 +104,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 5. 系統會跳回登入畫面，需重新輸入六位驗證碼並再次登入
 
-![輸入驗證碼](/assets/images/Verification-code-4.png)
+![輸入驗證碼](/sosi-manual/assets/images/Verification-code-4.png)
 
 ### **三、密碼錯誤鎖定與解除**
 
@@ -114,7 +114,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 密碼錯誤次數：當使用者登入時，密碼輸入錯誤累計超過 5 次，系統將自動啟動鎖定機制 。
 * 鎖定後果：該帳號會被系統自動鎖定，並暫停登入權限 1 小時 。
 
-![密碼鎖定](/assets/images/lock-5.png)
+![密碼鎖定](/sosi-manual/assets/images/lock-5.png)
 
 2. 解除鎖定方式
 
@@ -127,7 +127,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 系統自動解除：使用者只需等待 1 小時 的鎖定時間結束，系統便會自動解除限制 。
 * 功能定義：解鎖功能僅用於重置登入錯誤次數，並不會更改原有的密碼 。
 
-![解除密碼鎖定](/assets/images/unlock-6.png)
+![解除密碼鎖定](/sosi-manual/assets/images/unlock-6.png)
 
 
 
@@ -163,7 +163,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 於裝置列表頁面點選「建立裝置」。
 * 輸入裝置資訊在指定欄位內，並根據不同機器類型填寫對應內容（如 VNC/RDP/SSH 所需參數不同）。
 
-![裝置列表](/assets/images/device-7.png)
+![裝置列表](/sosi-manual/assets/images/device-7.png)
 
 #### （三）查看裝置 
 
@@ -182,7 +182,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 備註：關於該裝置的額外說明資訊 。
 * 負責人信箱：該裝置管理窗口的聯繫電子郵件 。
 
-![裝置資訊](/assets/images/deviceinfo-8.png)
+![裝置資訊](/sosi-manual/assets/images/deviceinfo-8.png)
 
     ＊具有存取權限的使用者：可在此列表檢視目前被授權使用此裝置的人員名單 。
 
@@ -206,13 +206,13 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 盤側錄下載：下載該次連線所產生的鍵盤輸入紀錄 (.txt 檔案) 。
 * 連線報告
 
-![裝置列表操作行為](/assets/images/deviceact-9.png)
+![裝置列表操作行為](/sosi-manual/assets/images/deviceact-9.png)
 
 * 對於連線中的連線，管理員可以點選強制斷線按鈕，以及監看連線
 
     強制斷線前會彈出確認的訊息，按「確定」後即可強制斷線
 
-![強制斷線](/assets/images/devicecutoff-10.png)
+![強制斷線](/sosi-manual/assets/images/devicecutoff-10.png)
 
 輸出紀錄：
 
@@ -220,7 +220,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 * 管理員可以輸出連線紀錄，檔案格式提供 .xlsx 與 .csv
 
-![連線紀錄匯出](/assets/images/deviceexport-11.png)
+![連線紀錄匯出](/sosi-manual/assets/images/deviceexport-11.png)
 
 #### **（四）編輯裝置**
 
@@ -237,7 +237,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 於裝置列表頁面，點選「刪除」
 * 該裝置被刪除
 
-![裝置刪除](/assets/images/device-del-12.png)
+![裝置刪除](/sosi-manual/assets/images/device-del-12.png)
 
 #### **（五）裝置設定**
 
@@ -259,7 +259,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
     * SFTP 驗證類型 (Type) ：
         * SFTP Password Certificate (密碼憑證)：須輸入對應的帳號與密碼 。
         * SFTP PrivateKey Certificate (私鑰憑證)：須輸入帳號、私鑰及私鑰密碼 。
-![檔案傳輸設定](/assets/images/Sftp-13.png)
+![檔案傳輸設定](/sosi-manual/assets/images/Sftp-13.png)
 
 2. 圖形會話錄製 (a)
 
@@ -274,7 +274,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 此功能用於防止敏感資料透過複製貼上流出或進入遠端裝置 。
 
-![其他設定](/assets/images/-14.png)
+![其他設定](/sosi-manual/assets/images/-14.png)
 
 * 隱藏複製功能：開啟後，使用者將無法把遠端裝置內的資料複製到本機設備 。
 * 隱藏貼上功能：開啟後，使用者將無法把本機資料貼上至遠端裝置 。
@@ -289,20 +289,20 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 1. 搜尋與篩選 (a)：管理員可透過輸入使用者關鍵字串，快速篩選出相關的帳號結果 。
 2. 清單項目說明 (b)：可檢閱使用者 ID、認證方式（如 LDAP 或 SOSI）、使用者帳號、名稱、身分（使用者/管理員）、2FA 啟用狀態及最後登入時間 。
-![使用者列表](/assets/images/userlist-15.png)
+![使用者列表](/sosi-manual/assets/images/userlist-15.png)
 
 3. 批次匯入 (c)：支援透過上傳 .xlsx 或 .csv 檔案的方式，批次建立使用者資料 。
 4. 查看紀錄
 * 使用者資訊：可查看設定資訊
 * 操作紀錄：包含使用者執行的事件動作、來源 IP 地址、更新時間、項目類型及項目編號等資訊 。
-![使用者資訊](/assets/images/user-info-16.png)
+![使用者資訊](/sosi-manual/assets/images/user-info-16.png)
 
 #### **（二）帳號維護操作**
 
 
 
 1. 建立與編輯：管理員可手動新增使用者，或進入編輯頁面修改帳號、名稱、電子信箱、身分權限及時區設定 。
-![使用者設定](/assets/images/user-set-17.png)
+![使用者設定](/sosi-manual/assets/images/user-set-17.png)
 
 2. 帳號刪除：管理員可將不再需要的使用者帳號從系統中移除 。
 
@@ -315,7 +315,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
         ＊此路徑為針對單一使用者，可至全站設定開啟All User
 
-![使用者2FA](/assets/images/user2FA-18.png)
+![使用者2FA](/sosi-manual/assets/images/user2FA-18.png)
 
 2. 重置2FA按鈕：若該使用者已經啟用二階段認證，但需要重新設定兩階段認證 (例如遺失)，管理員可以協助點選此按鈕，讓使用者登入後重新設定兩階段認證。
 
@@ -340,7 +340,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 編輯憑證：針對既有憑證資訊進行修改 。
 * 刪除憑證：將不再使用的憑證從系統中移除 。
 
-![憑證設定](/assets/images/certificate-19.png)
+![憑證設定](/sosi-manual/assets/images/certificate-19.png)
 
 #### **（二）查看憑證**
 
@@ -348,7 +348,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 * 新增存取權限裝置（僅限設定管理員）
     * 管理員可藉由此處的下拉選單，選取或是搜尋要授權該憑證權限的裝置，並點選送出，即可授權成功。
-![查看憑證](/assets/images/checkcert-20.png)
+![查看憑證](/sosi-manual/assets/images/checkcert-20.png)
 
 ### **四、裝置連線授權相關**
 
@@ -364,12 +364,12 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 建立群組：新增使用者授權群組。
 * 編輯群組：可編輯群組名稱
 * 刪除群組
-![授權群組設定](/assets/images/Authorize-group-21.png)
+![授權群組設定](/sosi-manual/assets/images/Authorize-group-21.png)
 
 3. 查看群組
 * 群組資訊
 * 新增使用者：僅限身份為管理者
-![新增授權群組](/assets/images/auth-addgroup-22.png)
+![新增授權群組](/sosi-manual/assets/images/auth-addgroup-22.png)
 
 #### **（二）授權連線申請**
 
@@ -389,20 +389,20 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 1. 搜尋條件
 * 支援依據「使用者帳號」、「裝置名稱」、「授權開始/結束時間」以及「是否為永久授權」進行精確篩選 。
-![授權搜尋](/assets/images/auth-search-23.png)
+![授權搜尋](/sosi-manual/assets/images/auth-search-23.png)
 
 2. 新增、編輯授權連線
 * 授權裝置一覽，點選『建立裝置連線授權』按鈕，或是在列表頁「操作行為」點擊編輯圖示。
-![新增授權連線](/assets/images/authadd-24.png)
+![新增授權連線](/sosi-manual/assets/images/authadd-24.png)
 
 * 選擇欲授權使用者帳號、裝置名稱及授權憑證等設定資訊
 * 如果沒有授權憑證，連線者在建立連線時，需自行手動輸入遠端主機的帳號或密碼。
-![憑證授權](/assets/images/cert-auth-25.png)
+![憑證授權](/sosi-manual/assets/images/cert-auth-25.png)
 
 3. 欄位設定說明
 
 在建立或編輯授權連線時，需配置以下關鍵資訊 ：
-![授權裝置](/assets/images/authdevice-26.png)
+![授權裝置](/sosi-manual/assets/images/authdevice-26.png)
 
 
 * 人員與對象：
@@ -418,7 +418,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
         * 不限制：在未設定憑證時，由連線者自行輸入本機帳號密碼。
         * 同使用者帳號：未設定憑證時，系統自動套用使用者的「SOSI 帳號」登入裝置 。
         * 特定使用者帳號：未設定憑證時，強制使用於此處輸入的特定帳號進行登入 。
-![連線登入](/assets/images/connect-login-27.png)
+![連線登入](/sosi-manual/assets/images/connect-login-27.png)
 
 ### **五、浮水印設定**
 
@@ -453,7 +453,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
     * 查看/編輯/刪除
     * 同步領域使用者
     * 綁定測試
-![領域設定](/assets/images/domain-28.png)
+![領域設定](/sosi-manual/assets/images/domain-28.png)
 
 #### **（二）新增領域**
 
@@ -488,7 +488,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 管理員過濾條件：在 LDAP 伺服器中驗證管理員的過濾條件 。
 * 同步用帳號：使用同步功能時的 LDAP 伺服器使用者 。
 * 同步用帳號的密碼：使用同步功能時的 LDAP 伺服器使用者密碼，此欄位會加密 。
-![新增領域](/assets/images/add-domain-29.png)
+![新增領域](/sosi-manual/assets/images/add-domain-29.png)
 
 ### **七、全站設定**
 
@@ -497,7 +497,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 
 管理員若在全站設定，強制開啟全站兩階段驗證，所有使用者在登入時就必須要輸入兩階段驗證碼。
 
-![全站設定](/assets/images/allset-30.png)
+![全站設定](/sosi-manual/assets/images/allset-30.png)
 
 
 #### **（二）郵件設定**
@@ -565,7 +565,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
 * 鍵盤側錄：下載使用者連線期間的所有按鍵輸入紀錄（.txt 格式）。
 * 連線報告：生成並下載該次連線的綜合稽核報告。
 * 下載連線紀錄：位於畫面右上角，點選後可將符合搜尋條件的紀錄整批匯出（支援 .xlsx 或 .csv 格式）。
-![連線紀錄列表](/assets/images/connect-list-31.png)
+![連線紀錄列表](/sosi-manual/assets/images/connect-list-31.png)
 
 #### **（二）檔案傳輸紀錄列表**
 
@@ -592,7 +592,7 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
     * 關鍵字搜尋：支援透過「連線 ID」、「裝置識別名稱」或「使用者帳號」進行快速篩選。
     * 上傳時間區間：可設定「上傳時間 ≥」或「上傳時間 ≤」來精確定位特定時段的傳輸活動。
 
-![檔案傳輸紀錄列表](/assets/images/filelist-32.png)
+![檔案傳輸紀錄列表](/sosi-manual/assets/images/filelist-32.png)
 
 
 
@@ -628,6 +628,6 @@ SOSI 是一套整合身分認證與遠端存取審計的高強度資安網關 �
     * 項目類型：受影響的系統功能塊（如：登入、使用者、裝置）。
     * 項目編號：受影響物件在資料庫中的唯一 ID。
 
-![操作紀錄列表](/assets/images/operate-list-33.png)
+![操作紀錄列表](/sosi-manual/assets/images/operate-list-33.png)
 
 
