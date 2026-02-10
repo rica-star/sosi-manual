@@ -1,57 +1,59 @@
-<style>
-  .callout {
-    padding: 1rem;
-    margin: 1.5rem 0;
-    border-left: 0.3rem solid;
-    border-radius: 0.2rem;
-    background-color: #f8f9fa;
-  }
-  .callout-info { border-left-color: #2196f3; background-color: #e3f2fd; }
-  .callout-warning { border-left-color: #ff9800; background-color: #fff3e0; }
-  .callout-danger { border-left-color: #f44336; background-color: #ffebee; }
-</style>
-<style>
-  /* 自動偵測包含警告符號的段落並上色 */
-  p:has(img), p:has(strong) { margin-bottom: 1.5rem; }
-  
-  /* 讓所有的 H2 標題自帶底部裝飾線，增加層次感 */
-  h2 { 
-    border-bottom: 2px solid #007bff; 
-    padding-bottom: 10px; 
-    margin-top: 40px; 
-    color: #0056b3;
-  }
-  
-  /* 讓所有的 H3 標題前面帶一個小方塊 */
-  h3 {
-    border-left: 5px solid #6c757d;
-    padding-left: 10px;
-    margin-top: 30px;
-  }
-
-  /* 讓表格變漂亮（不再是擠在一起的文字） */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-  }
-  th { background: #f8f9fa; text-align: left; padding: 12px; border: 1px solid #dee2e6; }
-  td { padding: 12px; border: 1px solid #dee2e6; }
-</style>
-<div id="progress-bar" style="position:fixed; top:0; left:0; height:4px; background:#007bff; width:0; z-index:9999;"></div>
-<script>
-  window.onscroll = function() {
-    var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-    var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-    var scrolled = (winScroll / height) * 100;
-    document.getElementById("progress-bar").style.width = scrolled + "%";
-  };
-</script>
-<script>
-  document.querySelectorAll('.main-content img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.onclick = function() {
-      window.open(this.src, '_blank');
-    };
-  });
-</script>
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <%= render "head", metadata: site.metadata, title: data.title %>
+  <style>
+    .docs-container { display: flex; max-width: 1200px; margin: 0 auto; padding: 20px; }
+    .sidebar { width: 250px; position: sticky; top: 20px; height: calc(100vh - 40px); overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; font-size: 0.9rem; }
+    .main-content { flex: 1; padding-left: 40px; max-width: 800px; }
+    h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 40px; color: #0056b3; }
+    h3 { border-left: 5px solid #6c757d; padding-left: 10px; margin-top: 30px; }
+    #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #007bff; width: 0; z-index: 9999; }
+    img { max-width: 550px !important; height: auto; display: block; margin: 20px 0; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); cursor: zoom-in; }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <div class="docs-container">
+    <nav class="sidebar">
+      <h3 style="border:none; padding:0;">📜 目錄</h3>
+      <div id="toc"></div>
+    </nav>
+    <main class="main-content">
+      <%= yield %>
+    </main>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const toc = document.getElementById("toc");
+      const headings = document.querySelectorAll(".main-content h2, .main-content h3");
+      const tocList = document.createElement("ul");
+      tocList.style.paddingLeft = "10px";
+      headings.forEach((heading, index) => {
+        const id = "section-" + index;
+        heading.setAttribute("id", id);
+        const li = document.createElement("li");
+        li.style.listStyle = "none";
+        li.style.marginBottom = "8px";
+        const a = document.createElement("a");
+        a.href = "#" + id;
+        a.textContent = heading.textContent;
+        a.style.textDecoration = "none";
+        a.style.color = heading.tagName === "H2" ? "#333" : "#666";
+        if (heading.tagName === "H2") a.style.fontWeight = "bold";
+        li.appendChild(a);
+        tocList.appendChild(li);
+      });
+      toc.appendChild(tocList);
+      window.onscroll = function() {
+        var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        document.getElementById("progress-bar").style.width = (winScroll / height) * 100 + "%";
+      };
+      document.querySelectorAll('.main-content img').forEach(img => {
+        img.onclick = function() { window.open(this.src, '_blank'); };
+      });
+    });
+  </script>
+</body>
+</html>
