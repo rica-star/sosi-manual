@@ -8,6 +8,11 @@
     .sidebar { width: 250px; position: sticky; top: 20px; height: calc(100vh - 40px); overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; font-size: 0.9rem; }
     .main-content { flex: 1; padding-left: 40px; max-width: 800px; }
     
+    /* 語言切換器樣式 */
+    .lang-switcher { margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 5px; }
+    .lang-switcher a { text-decoration: none; color: #007bff; font-weight: bold; margin-right: 10px; }
+    .lang-switcher a:hover { text-decoration: underline; }
+
     p { margin-bottom: 1.8rem; }
     h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 50px; color: #0056b3; }
     h3 { border-left: 5px solid #6c757d; padding-left: 10px; margin-top: 40px; }
@@ -15,42 +20,27 @@
     .callout { padding: 1rem; margin: 1.5rem 0; border-left: 0.3rem solid; border-radius: 0.2rem; background-color: #f8f9fa; }
     .callout-info { border-left-color: #2196f3; background-color: #e3f2fd; }
     
-    /* 網頁上的小圖預覽 */
-    img { max-width: 100%; height: auto; display: block; margin: 30px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: zoom-in; transition: transform 0.2s; }
-    img:hover { transform: scale(1.02); }
+    img { max-width: 100%; height: auto; display: block; margin: 30px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: zoom-in; }
 
-    /* --- 強力燈箱 (Enhanced Lightbox) --- */
     #lightbox {
-      display: none;
-      position: fixed;
-      z-index: 10000;
-      top: 0; left: 0; 
-      width: 100vw; height: 100vh;
-      background-color: rgba(0, 0, 0, 0.9); /* 更黑的背景 */
-      cursor: zoom-out;
-      justify-content: center;
-      align-items: center;
+      display: none; position: fixed; z-index: 10000; top: 0; left: 0; width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9); cursor: zoom-out; justify-content: center; align-items: center;
     }
-    #lightbox img {
-      max-width: 95vw;  /* 強制寬度最高佔 95% 螢幕 */
-      max-height: 90vh; /* 強制高度最高佔 90% 螢幕 */
-      object-fit: contain; /* 確保比例不變 */
-      border: 3px solid white; /* 加個白邊讓截圖邊界明顯 */
-      box-shadow: 0 0 50px rgba(0,0,0,1);
-      border-radius: 4px;
-    }
+    #lightbox img { max-width: 95vw; max-height: 90vh; object-fit: contain; border: 3px solid white; }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #007bff; width: 0; z-index: 9999; }
   </style>
 </head>
 <body>
   <div id="progress-bar"></div>
-  
-  <div id="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="">
-  </div>
+  <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src=""></div>
 
   <div class="docs-container">
     <nav class="sidebar">
+      <div class="lang-switcher">
+        🌐 <a href="/sosi-manual/">中</a>
+        <a href="/sosi-manual/en/">EN</a>
+        <a href="/sosi-manual/jp/">JP</a>
+      </div>
       <h3 style="border:none; padding:0;">📜 目錄</h3>
       <div id="toc"></div>
     </nav>
@@ -61,7 +51,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 目錄生成
       const toc = document.getElementById("toc");
       const headings = document.querySelectorAll(".main-content h2, .main-content h3");
       const tocList = document.createElement("ul");
@@ -78,17 +67,12 @@
       });
       toc.appendChild(tocList);
 
-      // 燈箱邏輯
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
       document.querySelectorAll('.main-content img').forEach(img => {
-        img.onclick = function() {
-          lightbox.style.display = 'flex';
-          lightboxImg.src = this.src;
-        };
+        img.onclick = function() { lightbox.style.display = 'flex'; lightboxImg.src = this.src; };
       });
 
-      // 進度條
       window.onscroll = function() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
