@@ -3,39 +3,41 @@
 <head>
   <%= render "head", metadata: site.metadata, title: data.title %>
   <style>
-    /* 基礎佈局 */
-    body { line-height: 1.9; color: #333; font-family: sans-serif; }
+    body { line-height: 1.9; color: #333; font-family: sans-serif; margin: 0; }
     .docs-container { display: flex; max-width: 1200px; margin: 0 auto; padding: 20px; }
     .sidebar { width: 250px; position: sticky; top: 20px; height: calc(100vh - 40px); overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; font-size: 0.9rem; }
     .main-content { flex: 1; padding-left: 40px; max-width: 800px; }
     
-    /* 內容樣式 */
     p { margin-bottom: 1.8rem; }
     h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 50px; color: #0056b3; }
     h3 { border-left: 5px solid #6c757d; padding-left: 10px; margin-top: 40px; }
+    
     .callout { padding: 1rem; margin: 1.5rem 0; border-left: 0.3rem solid; border-radius: 0.2rem; background-color: #f8f9fa; }
     .callout-info { border-left-color: #2196f3; background-color: #e3f2fd; }
-    .callout-warning { border-left-color: #ff9800; background-color: #fff3e0; }
-    .callout-danger { border-left-color: #f44336; background-color: #ffebee; }
-    img { max-width: 550px !important; height: auto; display: block; margin: 30px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: zoom-in; }
+    
+    /* 網頁上的小圖預覽 */
+    img { max-width: 100%; height: auto; display: block; margin: 30px 0; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); cursor: zoom-in; transition: transform 0.2s; }
+    img:hover { transform: scale(1.02); }
 
-    /* --- 燈箱效果 (Lightbox) CSS --- */
+    /* --- 強力燈箱 (Enhanced Lightbox) --- */
     #lightbox {
       display: none;
       position: fixed;
       z-index: 10000;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background-color: rgba(0, 0, 0, 0.85);
+      top: 0; left: 0; 
+      width: 100vw; height: 100vh;
+      background-color: rgba(0, 0, 0, 0.9); /* 更黑的背景 */
       cursor: zoom-out;
       justify-content: center;
       align-items: center;
     }
     #lightbox img {
-      max-width: 90%;
-      max-height: 90%;
-      box-shadow: 0 0 20px rgba(0,0,0,0.5);
-      cursor: default;
-      transition: transform 0.3s ease;
+      max-width: 95vw;  /* 強制寬度最高佔 95% 螢幕 */
+      max-height: 90vh; /* 強制高度最高佔 90% 螢幕 */
+      object-fit: contain; /* 確保比例不變 */
+      border: 3px solid white; /* 加個白邊讓截圖邊界明顯 */
+      box-shadow: 0 0 50px rgba(0,0,0,1);
+      border-radius: 4px;
     }
     #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #007bff; width: 0; z-index: 9999; }
   </style>
@@ -44,7 +46,7 @@
   <div id="progress-bar"></div>
   
   <div id="lightbox" onclick="this.style.display='none'">
-    <img id="lightbox-img" src="" alt="放大圖">
+    <img id="lightbox-img" src="">
   </div>
 
   <div class="docs-container">
@@ -59,41 +61,34 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", function() {
-      // 1. 自動生成目錄 (TOC)
+      // 目錄生成
       const toc = document.getElementById("toc");
       const headings = document.querySelectorAll(".main-content h2, .main-content h3");
       const tocList = document.createElement("ul");
-      tocList.style.paddingLeft = "10px";
       headings.forEach((heading, index) => {
         const id = "section-" + index;
         heading.setAttribute("id", id);
         const li = document.createElement("li");
-        li.style.listStyle = "none";
-        li.style.marginBottom = "8px";
+        li.style.listStyle = "none"; li.style.marginBottom = "8px";
         const a = document.createElement("a");
-        a.href = "#" + id;
-        a.textContent = heading.textContent;
-        a.style.textDecoration = "none";
-        a.style.color = heading.tagName === "H2" ? "#333" : "#666";
+        a.href = "#" + id; a.textContent = heading.textContent;
+        a.style.textDecoration = "none"; a.style.color = heading.tagName === "H2" ? "#333" : "#666";
         if (heading.tagName === "H2") a.style.fontWeight = "bold";
-        li.appendChild(a);
-        tocList.appendChild(li);
+        li.appendChild(a); tocList.appendChild(li);
       });
       toc.appendChild(tocList);
 
-      // 2. 燈箱點擊邏輯
+      // 燈箱邏輯
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-img');
-      
       document.querySelectorAll('.main-content img').forEach(img => {
-        img.onclick = function(e) {
-          e.stopPropagation(); // 防止觸發其他事件
+        img.onclick = function() {
           lightbox.style.display = 'flex';
           lightboxImg.src = this.src;
         };
       });
 
-      // 3. 進度條邏輯
+      // 進度條
       window.onscroll = function() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
