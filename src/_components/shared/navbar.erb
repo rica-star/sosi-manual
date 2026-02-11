@@ -1,5 +1,19 @@
+
+<style>
+  header { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; }
+  header img { height: 36px; }
+  .top-lang { background: rgba(255,255,255,0.92); padding: 6px 10px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .top-lang a { text-decoration: none; color: #007bff; font-weight: bold; margin-left: 8px; }
+  .top-lang a:hover { text-decoration: underline; }
+</style>
+
 <header>
   <img src="<%= relative_url '/images/logo.svg' %>" alt="Logo" />
+  <div class="top-lang">
+    🌐 <a href="/sosi-manual/">中</a>
+    <a href="/sosi-manual/en/">EN</a>
+    <a href="/sosi-manual/jp/">JP</a>
+  </div>
 </header>
 
 <nav>

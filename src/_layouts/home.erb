@@ -8,10 +8,7 @@
     .sidebar { width: 250px; position: sticky; top: 20px; height: calc(100vh - 40px); overflow-y: auto; padding-right: 20px; border-right: 1px solid #eee; font-size: 0.9rem; }
     .main-content { flex: 1; padding-left: 40px; max-width: 800px; }
     
-    /* 語言切換器樣式 */
-    .lang-switcher { margin-bottom: 20px; padding: 10px; background: #f8f9fa; border-radius: 5px; }
-    .lang-switcher a { text-decoration: none; color: #007bff; font-weight: bold; margin-right: 10px; }
-    .lang-switcher a:hover { text-decoration: underline; }
+    /* 語言切換器樣式已移至共用 navbar */
 
     p { margin-bottom: 1.8rem; }
     h2 { border-bottom: 2px solid #007bff; padding-bottom: 10px; margin-top: 50px; color: #0056b3; }
@@ -34,13 +31,10 @@
   <div id="progress-bar"></div>
   <div id="lightbox" onclick="this.style.display='none'"><img id="lightbox-img" src=""></div>
 
+  <!-- 語言切換器已移至共用 navbar -->
+
   <div class="docs-container">
     <nav class="sidebar">
-      <div class="lang-switcher">
-        🌐 <a href="/sosi-manual/">中</a>
-        <a href="/sosi-manual/en/">EN</a>
-        <a href="/sosi-manual/jp/">JP</a>
-      </div>
       <h3 style="border:none; padding:0;">📜 目錄</h3>
       <div id="toc"></div>
     </nav>
